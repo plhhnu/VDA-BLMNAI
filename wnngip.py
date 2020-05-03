@@ -94,7 +94,7 @@ class WNNGIP:
         scores = scores.tolist()
         acc, spec = computation(test_label, scores)
         scores = np.array(scores)
-        sen = recall_score(test_label, (scores > 0.6).astype(int), average='micro')
+        sen = recall_score(test_label, (scores > 0.5).astype(int), average='micro')
 
         return aupr_val, auc_val, acc, sen, spec
 
