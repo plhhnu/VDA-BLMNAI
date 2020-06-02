@@ -21,17 +21,9 @@ class BLMNAI:
         if avg in ('true', 'True', True):
             self.avg = True
 
-    #def kernel_combination(self, R, S, new_inx, bandwidth):
-    #    K = self.alpha*S+(1.0-self.alpha)*rbf_kernel(R, gamma=bandwidth)
-    #    K[new_inx, :] = S[new_inx, :]
-    #    K[:, new_inx] = S[:, new_inx]
-    #    return K
-
 
     def kernel_combination(self, R, S, new_inx, bandwidth):
         K = S
-        #K[new_inx, :] = S[new_inx, :]
-        #K[:, new_inx] = S[:, new_inx]
         return K
 
 
@@ -41,7 +33,7 @@ class BLMNAI:
             Y[d, :] = np.dot(S[d, train_inx], Y[train_inx, :])
             x1, x2 = np.max(Y[d, :]), np.min(Y[d, :])
             Y[d, :] = (Y[d, :]-x2)/(x1-x2)
-        vec = np.linalg.inv(K+self.sigma*np.eye(K.shape[0]))  #求逆   求对角矩阵   为了防止求逆出错，加一个对角矩阵
+        vec = np.linalg.inv(K+self.sigma*np.eye(K.shape[0]))
         return np.dot(np.dot(K, vec), Y)
 
 
