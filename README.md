@@ -1,18 +1,24 @@
-# VDA-BLMNAI
+This code is written by:
 
-VDA-BLMNAI将病毒相似性、药物相似性和病毒-药物关联矩阵（txt）作为输入文件，.txt文件格式用于存储所有新的病毒与药物关联得分。
+XiongFei Tian
 
-命令：
+Email: txfhut@163.com
 
-Python3 VDI.py [-PARAMS PARAM_VALUE]
+For any questions regarding to this library, please feel free to contact the author.
 
-参数：
+parameters：
 
--method 方法名字
--dataset数据集的名字
--predict-num 默认为0，一个正数表示top-N新的VDIs
+--method 			set VDA prediction method
+--dataset: 			choose the benchmark dataset, i.e., vd
+--folder:			set the the folder that contains the datasets 
+--csv:				choose the cross-validation setting, 1 for CVS1, 2 for CVS2, and 3 for CVS3, (default 1)
+--specify-arg:		0 for choosing optimal arguments, 1 for using default/specified arguments (default 1)
+--method-opt:		set arguments for each method (method ARGUMENTS have the form name=value)
+--predict-num:		0 for not predicting novel DTIs, a positive integer for predicting top-N novel DTIs (default 0)
 
-示例：
+Here are some examples:
 
-Python3 VDI.py --method="blmnii" --dataset="dv" --predict-num=100
-python3 VDI.py --method="blmnii" --dataset="dv"
+run a method with default arguments:
+	python VDI.py --method="nrlmf" --dataset="nr"
+	python VDI.py --method="nrlmf" --dataset="nr" --cvs=2
+	python VDI.py --method="nrlmf" --dataset="nr" --cvs=2 --specify-arg=1
