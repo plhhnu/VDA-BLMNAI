@@ -1,6 +1,8 @@
 This code is written by:
 
-XiongFei Tian
+https://github.com/stephenliu0423/PyDTI
+
+and is modified by XiongFei Tian.
 
 Email: txfhut@163.com
 
